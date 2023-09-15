@@ -1,0 +1,5 @@
+mkdocs-material
+pymdown-extensions
+mkdocs-enumerate-headings-plugin
+mkdocs-open-in-new-tab
+mkdocs-pdf-export-plugin

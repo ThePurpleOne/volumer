@@ -1,0 +1,21 @@
+site_name: Volumer
+site_description: Volumer
+site_author: Jonas S.
+
+theme:
+  name: readthedocs
+  locale: en
+
+nav:  
+  - Home: index.md
+
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - attr_list
+
+plugins:
+  - search
+  - open-in-new-tab
