@@ -2,8 +2,8 @@
 * main.go
 * Author: Jonas S.
 * Date  : 15/09/2023
-* Brief : This program is used to read the HID device data
-* 	   	  and control the the individual volumes set by the user.
+* Brief : This program manages the serial communication with the board
+* 	   	  and control the individual volumes set by the user.
 **/
 
 package main
@@ -11,40 +11,110 @@ package main
 import (
 	"fmt"
 	"log"
-	"time"
+	"bytes"
+	"strings"
+	//"time"
 
-	"github.com/sstallion/go-hid"
+    "github.com/albenik/go-serial"
+
+
 )
 
 func main() {
 
-	var vid uint16 = 0x1234
-	var pid uint16 = 0x6969 
 
-	device, err := hid.OpenFirst(vid, pid)
+	// ! LIST AVAILABLE PORTS
+	ports, err := serial.GetPortsList()
 	if err != nil {
-		log.Fatalf("Failed to open HID device: %v", err)
+		log.Fatal(err)
 	}
 
-	//device, err := hid.Open(vid, pid, "")
-	//if err != nil {
-	//	log.Fatalf("Failed to open HID device: %v", err)
-	//}
-	//defer device.Close()
+	if len(ports) == 0 {
+		log.Fatal("No serial ports found!")
+	}
 
-	buf := make([]byte, 64) // Assuming HID reports are 64 bytes
+	for _, port := range ports {
+		fmt.Printf("Found port: %v\n", port)
+	}
+
+
+	// ! OPEN SERIAL PORT
+	mode := &serial.Mode{
+		BaudRate: 115200,
+	}
+	port, err := serial.Open(ports[0], mode)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer port.Close()
+
+
+	// ! WAIT FOR PING FROM BOARD
+	receivedData := make([]byte, 0)
+	buf := make([]byte, 10)
+	for {
+
+		n, err := port.Read(buf)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// Append the received data to the buffer
+		receivedData = append(receivedData, buf[:n]...)
+		fmt.Println("---")
+		fmt.Printf("%s\n", receivedData)
+		fmt.Println("---")
+
+		// Check if "PING\n" is present in the received data
+		if bytes.Contains(receivedData, []byte("PING")) {
+			fmt.Println("Received PING")
+			break
+		}
+	}
+
+	// ! SEND PONG TO BOARD
+	_, err = port.Write([]byte("PONG\n\n\r"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connection established")
+
+	// ! WAIT FOR VOLUME COMMANDS
+	// The board will send volume commands in the following format:
+	// REx:{delta_x}
+	// Where x is the Rotary encoder index and {delta_x} is the change in volume
+	buf = make([]byte, 256)
+	var lineBuffer string
 
 	for {
-		n, err := device.Read(buf)
+		n, err := port.Read(buf)
 		if err != nil {
-			log.Fatalf("Error reading from HID device: %v", err)
+			log.Fatalf("port.Read: %v", err)
 		}
 
-		if n > 0 {
-			report := buf[:n]
-			fmt.Printf("Received HID report: %v\n", report)
-		}
+		data := string(buf[:n])
+		lineBuffer += data
 
-		time.Sleep(100 * time.Millisecond) // Adjust the sleep duration as needed
+		if strings.Contains(lineBuffer, "\n") {
+			lines := strings.Split(lineBuffer, "\n")
+
+			// ! Process each line
+			for _, line := range lines {
+				
+				// Check if the line matches the expected format "REx:{delta_x}"
+				if strings.HasPrefix(line, "RE") && strings.Contains(line, ":") {
+					parts := strings.Split(line, ":")
+					if len(parts) == 2 {
+						re_index := parts[0]
+						delta := parts[1]
+						fmt.Printf("%s -> %s\n", re_index, delta)						
+					}
+				}
+			}
+
+			// Clear the lineBuffer
+			lineBuffer = ""
+		}
 	}
+	
 }
