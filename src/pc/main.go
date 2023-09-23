@@ -11,46 +11,40 @@ package main
 import (
 	"fmt"
 	"log"
+	"time"
 
-	"github.com/karalabe/hid"
+	"github.com/sstallion/go-hid"
 )
 
-func main(){
+func main() {
 
-    vid := 0x1234 // VENDOR ID (VID)
-    pid := 0x6969 // PRODUCT ID (PID)
+	var vid uint16 = 0x1234
+	var pid uint16 = 0x6969 
 
-	devices, err := hid.Enumerate(vid, pid)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer hid.Close()
-	
-    if len(devices) == 0 {
-        fmt.Println("No matching HID devices found")
-        return
-    }
+	device, err := hid.OpenFirst(vid, pid)
+	if err != nil {
+		log.Fatalf("Failed to open HID device: %v", err)
+	}
 
-    // Open the first matching device
-    device, err := devices[0].Open()
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer device.Close()
+	//device, err := hid.Open(vid, pid, "")
+	//if err != nil {
+	//	log.Fatalf("Failed to open HID device: %v", err)
+	//}
+	//defer device.Close()
 
-    // Read HID reports
-    buf := make([]byte, 2)
-    for {
+	buf := make([]byte, 64) // Assuming HID reports are 64 bytes
 
-        n, err := device.Read(buf)
-        if err != nil {
-            log.Fatal(err)
-        }
+	for {
+		n, err := device.Read(buf)
+		if err != nil {
+			log.Fatalf("Error reading from HID device: %v", err)
+		}
 
-        // Process the received HID report
-        if n > 0 {
-            fmt.Printf("Received HID report: %v\n", buf[:n])
-        }
+		if n > 0 {
+			report := buf[:n]
+			fmt.Printf("Received HID report: %v\n", report)
+		}
 
-    }
+		time.Sleep(100 * time.Millisecond) // Adjust the sleep duration as needed
+	}
 }
