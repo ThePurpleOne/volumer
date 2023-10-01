@@ -1,0 +1,29 @@
+[knob1]
+apps = [
+	"discord.exe",
+    #"MASTER",
+]
+
+[knob2]
+apps = [
+    "cs2.exe",					# Counter-Strike 2
+    "hl2.exe",					# Half-Life 2 or TF2
+	"pathofexile_x64.exe",		# Path of Exile
+	"rocketleague.exe",			# Rocket League
+	"warframe.exe",				# Warframe
+	"wow.exe",					# World of Warcraft
+	"wow-64.exe",				# World of Warcraft
+	"arma2.exe",				# Arma 2
+	"arma3.exe",				# Arma 3
+	"LoL.exe",					# League of Legends
+	"bf1.exe",					# Battlefield 1
+	"mordhau.exe",				# Mordhau
+	"steam.exe",				# Steam
+]
+
+[knob3]
+apps = [
+    "brave.exe",
+    "firefox.exe",
+	"chrome.exe",
+]
