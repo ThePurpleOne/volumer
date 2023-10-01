@@ -3,8 +3,8 @@
 #include "pico/binary_info.h"
 #include "pico/unique_id.h"
 #include "hardware/gpio.h"
-#include "hardware/irq.h"
-#include "hardware/pio.h"
+//#include "hardware/irq.h"
+//#include "hardware/pio.h"
 #include "usb/usb.h"
 #include "usb/hid.h"
 
