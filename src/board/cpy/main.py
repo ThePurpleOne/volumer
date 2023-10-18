@@ -51,7 +51,7 @@ def connect_to_pc():
 
 def main():
 	connect_to_pc()
-	print("Connected to PC!")
+	#print("Connected to PC!")
 
 	last_pos_1 = RE_1.position
 	last_pos_2 = RE_2.position

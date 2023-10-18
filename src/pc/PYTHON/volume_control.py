@@ -33,10 +33,19 @@ def lower_volume(app_name):
 		if session.Process and session.Process.name() == app_name:
 			app = session.SimpleAudioVolume
 			volume = app.GetMasterVolume()
-			app.SetMasterVolume(volume - 0.01, None)
+			if volume > 0.01:
+				app.SetMasterVolume(volume - 0.01, None)
 			return
-		
-	raise Exception(f"App {app_name} not found")
+	print(f"{app_name} not found")
+
+def lower_volume_apps(apps):
+	for app in apps:
+		lower_volume(app)
+
+def raise_volume_apps(apps):
+	for app in apps:
+		raise_volume(app)
+
 
 def raise_volume(app_name):
 	"""
@@ -48,10 +57,11 @@ def raise_volume(app_name):
 		if session.Process and session.Process.name() == app_name:
 			app = session.SimpleAudioVolume
 			volume = app.GetMasterVolume()
-			app.SetMasterVolume(volume + 0.01, None)
+			if volume < 0.99:
+				app.SetMasterVolume(volume + 0.01, None)
 			return
-		
-	raise Exception(f"App {app_name} not found")
+
+	print(f"{app_name} not found")
 
 def get_installed_apps():
 	"""

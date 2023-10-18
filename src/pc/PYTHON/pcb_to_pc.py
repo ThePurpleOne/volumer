@@ -13,8 +13,7 @@ def list_available_ports():
 	return out
 
 def conect_to_port(port):
-	ser = serial.Serial(port, 115200, timeout=2)
-	return ser
+	return serial.Serial(port, 115200, timeout=2)
 
 def wait_for_connection(ser) -> bool:
 	"""
@@ -28,7 +27,7 @@ def wait_for_connection(ser) -> bool:
 			read = ser.readline().decode('utf-8').strip()
 
 			if "PING" in read:
-				ser.write("PONG\n".encode('utf-8'))
+				ser.write("PONG\r\n".encode('utf-8'))
 				return True
 		time.sleep(1)
 	return False
@@ -53,6 +52,7 @@ def connect_to_pcb(ports):
 		raise Exception("Could not connect to any serial port")
 
 	return ser, ok
+
 
 if __name__ == "__main__":
 	ports = list_available_ports()

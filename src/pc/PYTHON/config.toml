@@ -1,6 +1,6 @@
 [knob1]
 apps = [
-	"discord.exe",
+	"Discord.exe",
     #"MASTER",
 ]
 

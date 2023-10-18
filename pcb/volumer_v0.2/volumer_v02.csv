@@ -1,0 +1,27 @@
+"#","Reference","Qty","Value","Footprint","DNP"
+"1","C1, C4, C5, C8, C9, C10, C11, C12, C13, C16","10","100n","Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder",""
+"2","C2, C3","2","27p","Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder",""
+"3","C6, C7, C14, C15, C18, C19, C20, C21","8","1u","Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder",""
+
+"4","C17","1","10u","Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",""
+
+"5","J1, J2","2","Conn_01x01_Pin","Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",""
+
+"6","R1, R3, R7, R8, R9, R10, R11, R12","8","10k","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",""
+
+"7","R2, R6","2","1k","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",""
+
+"8","R4, R5","2","27","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",""
+"9","R13, R14","2","5k1","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",""
+
+"10","SW1, SW2","2","TS-3025-B-C-B ","push_button:lcsc_TS-3025-A-A-B_push_button",""
+
+"11","U1","1","W25Q128JVS","Package_SO:SOIC-8_5.23x5.23mm_P1.27mm",""
+"12","U2","1","RP2040","Package_DFN_QFN:QFN-56-1EP_7x7mm_P0.4mm_EP3.2x3.2mm",""
+
+"13","U3, U5, U6","3","Rotary encoder","Rotary_Encoder:RotaryEncoder_Alps_EC12E_Vertical_H20mm",""
+
+"14","U4","1","LD1117D33","Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",""
+
+"15","USB1","1","~","USBC:USBC_16P",""
+"16","Y1","1","12Mhz","Crystal:Crystal_SMD_HC49-SD",""
