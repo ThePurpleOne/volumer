@@ -520,11 +520,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
+      "projectUniqueName": "C:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
       "projectName": "volumer_app",
-      "projectPath": "c:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
+      "projectPath": "C:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
       "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\obj\\",
+      "outputPath": "C:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

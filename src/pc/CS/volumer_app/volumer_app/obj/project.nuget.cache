@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h5lnhaZKQgzeewqGqHGBFqi+qyqjGHR9svamUdsVB8puuLUJG6ReuLb58wjtRMDkjrnjZ5Vu5GR9Y4xOZ42bEw==",
+  "dgSpecHash": "fH/EeYufKzTptJ6jsLXUZdU4M/PDjtgojD/+dnmKf5u2XGqd4xnqNBodhR4ju+xgLEjGGvUY8/M2XeaNdPkP3g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
+  "projectFilePath": "C:\\Users\\jonas\\Documents\\PROJECTS\\VOLUMER\\src\\pc\\CS\\volumer_app\\volumer_app\\volumer_app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jonas\\.nuget\\packages\\cscore\\1.2.1.2\\cscore.1.2.1.2.nupkg.sha512",
     "C:\\Users\\jonas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
