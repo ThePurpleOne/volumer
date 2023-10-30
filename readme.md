@@ -4,7 +4,14 @@ Volume Mixer Hardware module for easy access to individual application-wise volu
 ## PCB
 
 ### V0.1
-[V0.1](./pcb/volumer_v0.1/)
+[V0.1 folder](./pcb/volumer_v0.1/)
+
+[V0.1 Schematics](./pcb/volumer_v0.1/volumer.pdf)
+
+
+<img src="./ressources/pcb_v0.1.png" width="400">
+
+
 
 Version 0.1 was a prototype 
 - Rotary encoders are not really satisfying to turn
@@ -15,12 +22,36 @@ Version 0.1 was a prototype
 ### V0.2
 [V0.2](./pcb/volumer_v0.2/)
 
+[V0.2 Schematics](./pcb/volumer_v0.2/volumer_v02.pdf)
+
+
+<img src="./ressources/pcb_v0.2.png" width="400">
+
+
 Version 0.2 is the first version that is actually usable:
+- ERROR with the buttons (caused by 2 pins button in schematics but 4 pins footprint)
 - Linear pots are nice and satisfying
 - Size of pots is good
 - Place between pots is good
 - LEDs are useless
 - PCB could be a lot smaller (pots mounted on other side of PCB)
+
+## PC Software
+
+[https://github.com/omriharel/deej](https://github.com/omriharel/deej)
+
+<img src="./ressources/deej_logo.png" width="100">
+
+
+For simplicity and not to reinvent the wheel, I'm using an opensource project called DEEJ, which actually does exactly what I want to do.
+
+You only need to put the executable in the same folder as the config file and make a shortcut to the executable in the startup folder to have it start with windows.
+
+
+config : [deej_config.json](./src/pc/deej_config.json) 
+
+
+In the config, You can set which pot controls which application and set the COM port of the board (Not automatically detected).
 
 
 ## Board Firmware 
