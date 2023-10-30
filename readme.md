@@ -1,7 +1,6 @@
 # Volumer
 Volume Mixer Hardware module for easy access to individual application-wise volume control. 
 
-
 ## PCB
 
 ### V0.1
@@ -25,17 +24,43 @@ Version 0.2 is the first version that is actually usable:
 
 
 ## Board Firmware 
-The board firmware is written in circuitpython for now.
+You can use Circuit python or a UF2 compiled C program.
 
 
-Available in [firmware](./src/board/cpy/)
+### Circuit Python
+You'll first need to install Circuitpython, there's an UF2 file in the [bin folder](./bin/).
 
 
-## RP2040 C SDK
+You can simply drag and drop the UF2 file on the board after a boot with the BOOTSEL button pressed.
+
+
+When Circuitpython is running, you can simply drag and drop the [code.py](./src/board/cpy/code.py) file into the board Circuitpython mass storage (Not the one when bootsel is pressed).
+
+
+### C
+There is an already compiled UF2 file in the [bin folder](./bin/).
+
+
+You can also compile the code yourself (need the RPI PICO SDK) and flash it to the board (Drag'n'drop in BOOTSEL mode). 
+
+Compile with:
 ```bash
-yay -S cmake arm-none-eabi-gcc arm-none-eabi-newlib arm-none-eabi-gdb arm-none-eabi-binutils
+cd src/board/c
+mkdir build
+cd build
+cmake ..
+make
 ```
 
+You can then flash the board with the generated UF2 file in the bin folder.
+
+
+## Download repo
 ```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=path/to/your/toolchain-file.cmake ..
+git clone --recurse-submodules
+```
+
+If you cloned without submodules
+```bash
+git submodule update --init
 ```

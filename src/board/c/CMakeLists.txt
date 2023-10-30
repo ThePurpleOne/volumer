@@ -24,13 +24,15 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     pico_stdlib
-	tinyusb
+	hardware_adc
 )
-
-pico_enable_stdio_usb(${PROJECT_NAME} 1)
 
 # Create a UF2 file for flashing the RP2040
 pico_add_extra_outputs(${PROJECT_NAME})
 
 # Set the output directory for the built binary (if desired)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+
+# Enable USB output, disable UART output
+pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_uart(${PROJECT_NAME} 0)

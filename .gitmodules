@@ -1,0 +1,3 @@
+[submodule "src/pc/deej"]
+	path = src/pc/deej
+	url = https://github.com/omriharel/deej.git
