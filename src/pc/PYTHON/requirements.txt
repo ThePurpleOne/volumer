@@ -1,4 +1,0 @@
-pycaw
-ttkthemes
-toml
-pyserial

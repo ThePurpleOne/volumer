@@ -1,3 +1,4 @@
 site
 .venv
 pcb/**/*-backups
+**/__pycache__
