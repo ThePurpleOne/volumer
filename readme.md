@@ -1,23 +1,37 @@
 # Volumer
-Volume Mixer Hardware module for easy access to individual application-wise volume control. 
+Hardware module to easily control Individual Windows app just like the volume Mixer.
+
+
+<img src="./ressources/volume_mixer.png" width="600">
+
+
+Accessing this window is a pain, especially if you're in game and you need to quickly lower that annoying SCREAMING discord friend in order to hear some terrorist footsteps.
+
+
+## TLDR
+- [Install the PC app](#pc-software)
+- [Install/Update Board Firmware](#board-firmware)
+- [PCB Information](#pcb)
+
 
 ## PCB
 
-### V0.1
-[V0.1 folder](./pcb/volumer_v0.1/)
+### V1.0
+[V1.0](./pcb/volumer_v1.0/)
 
-[V0.1 Schematics](./pcb/volumer_v0.1/volumer.pdf)
+[V1.0 Schematics](./pcb/volumer_v1.0/volumer_v1.0.pdf)
 
-
-<img src="./ressources/pcb_v0.1.png" width="400">
-
+<img src="./ressources/pcb_v1.0.png" width="400">
 
 
-Version 0.1 was a prototype 
-- Rotary encoders are not really satisfying to turn
-- you can only turn one at the time
-- Wrong rotary choice (really hard to turn and not clicky)
-- Encoders too close to each other, cant pass a finger between them
+
+Version 1.0 should be the final version:
+- NOT TESTED YET
+- Now has Mounting Holes
+- Only 2 extended parts
+- Only 2 layers
+- Smaller board but same gap between sliders
+- Should have enclosure soon
 
 ### V0.2
 [V0.2](./pcb/volumer_v0.2/)
@@ -35,6 +49,23 @@ Version 0.2 is the first version that is actually usable:
 - Place between pots is good
 - LEDs are useless
 - PCB could be a lot smaller (pots mounted on other side of PCB)
+- Broken QR code, freak this random qr code website, use [https://github.com/lyqht/styled-qr-code-generator](https://github.com/lyqht/styled-qr-code-generator)
+
+### V0.1
+[V0.1 folder](./pcb/volumer_v0.1/)
+
+[V0.1 Schematics](./pcb/volumer_v0.1/volumer.pdf)
+
+
+<img src="./ressources/pcb_v0.1.png" width="400">
+
+
+
+Version 0.1 was a prototype 
+- Rotary encoders are not really satisfying to turn
+- you can only turn one at the time
+- Wrong rotary choice (really hard to turn and not clicky)
+- Encoders too close to each other, cant pass a finger between them
 
 ## PC Software
 

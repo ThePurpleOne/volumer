@@ -1,0 +1,28 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model PTA4543-2015CPB104
+#/906194/1212135/2.50/7/4/Variable Resistor
+DEF PTA4543-2015CPB104 VR 0 30 Y Y 1 F N
+F0 "VR" 950 600 50 H V L CNN
+F1 "PTA4543-2015CPB104" 950 500 50 H V L CNN
+F2 "PTA45432015CPB503" 950 400 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/PTA4543-2015CPB503.pdf" 950 300 50 H I L CNN
+F4 "Low profile slide potentionmeter" 950 200 50 H I L CNN "Description"
+F5 "21.5" 950 100 50 H I L CNN "Height"
+F6 "652-PTA45432015CPB10" 950 0 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Bourns/PTA4543-2015CPB104?qs=Zq5ylnUbLm5bgYHDzxuH5g%3D%3D" 950 -100 50 H I L CNN "Mouser Price/Stock"
+F8 "Bourns" 950 -200 50 H I L CNN "Manufacturer_Name"
+F9 "PTA4543-2015CPB104" 950 -300 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X CCW 1 0 0 200 R 50 50 0 0 P
+X WIPER 2 0 -100 200 R 50 50 0 0 P
+X CW 3 1100 0 200 L 50 50 0 0 P
+X MH1 MH1 500 600 200 D 50 50 0 0 P
+X MH2 MH2 500 -700 200 U 50 50 0 0 P
+X MH3 MH3 600 600 200 D 50 50 0 0 P
+X MH4 MH4 600 -700 200 U 50 50 0 0 P
+P 5 0 1 6 200 400 900 400 900 -500 200 -500 200 400 N
+ENDDRAW
+ENDDEF
+#
+#End Library
