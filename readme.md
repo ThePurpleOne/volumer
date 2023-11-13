@@ -79,7 +79,7 @@ For simplicity and not to reinvent the wheel, I'm using an opensource project ca
 You only need to put the executable in the same folder as the config file and make a shortcut to the executable in the startup folder to have it start with windows.
 
 
-config : [deej_config.json](./src/pc/deej_config.json) 
+config : [./src/pc/config.yaml](./src/pc/config.yaml) 
 
 
 In the config, You can set which pot controls which application and set the COM port of the board (Not automatically detected).
