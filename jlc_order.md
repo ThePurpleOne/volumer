@@ -1,3 +1,7 @@
+# Buy the potentiometer
+
+You'll need to buy 4 pots model `PTA45432015CPB503` from where you want since it's not available on JLCPCB.
+
 # How to order on JLC PCB
 
 ## Step 1: Upload Gerber Files
