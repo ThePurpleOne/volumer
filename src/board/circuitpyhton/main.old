@@ -1,0 +1,80 @@
+# circuit_python program ran on the RP2040
+# This established serial connection with the PC
+# And a Go client is ran on the PC to communicate with the RP2040
+
+
+import board
+import time
+import rotaryio
+import supervisor
+
+CONN_RETRY = 0.5 # Seconds before retrying connection to PC
+
+# ROTARY ENCODER 1
+RE_1_A = board.GP0
+RE_1_B = board.GP1
+RE_1 = rotaryio.IncrementalEncoder(RE_1_A, RE_1_B)
+
+# ROTARY ENCODER 2
+RE_2_A = board.GP2
+RE_2_B = board.GP3
+RE_2 = rotaryio.IncrementalEncoder(RE_2_A, RE_2_B)
+
+# ROTARY ENCODER 3
+RE_3_A = board.GP4
+RE_3_B = board.GP5
+RE_3 = rotaryio.IncrementalEncoder(RE_3_A, RE_3_B)
+
+
+
+def connect_to_pc():
+	"""
+		Routine that sends a message to PC and waits for a response
+		It will spam the PC with "PING" every {CONN_RETRY} seconds until it receives a "PONG"
+		(It checks if it contains "PONG" not an exact match to avoid crlf issues)
+		Returns when it receives a "PONG"
+	"""
+
+	run = True
+
+	while run:
+		if supervisor.runtime.serial_bytes_available:
+			read = input().strip()
+
+			if "PONG" in read:
+				run = False
+				break
+
+		print("PING")
+
+		time.sleep(CONN_RETRY)
+
+def main():
+	#connect_to_pc()
+	#print("Connected to PC!")
+
+	last_pos_1 = RE_1.position
+	last_pos_2 = RE_2.position
+	last_pos_3 = RE_3.position
+
+	while True:
+		pos_1 = RE_1.position
+		pos_2 = RE_2.position
+		pos_3 = RE_3.position
+
+		delta_1 = pos_1 - last_pos_1
+		delta_2 = pos_2 - last_pos_2
+		delta_3 = pos_3 - last_pos_3
+
+		if delta_1 != 0:
+			print(f"RE1:{delta_1}")
+		if delta_2 != 0:
+			print(f"RE2:{delta_2}")
+		if delta_3 != 0:
+			print(f"RE3:{delta_3}")
+
+		last_pos_1 = pos_1
+		last_pos_2 = pos_2
+		last_pos_3 = pos_3
+
+main()

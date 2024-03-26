@@ -1,3 +1,12 @@
+/**
+ * @file main.c
+ * @author Jonas S.
+ * @brief 
+ * @version 0.1
+ * @date 26/03/2024
+ * 
+ */
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
@@ -6,8 +15,6 @@
 int main() 
 {
 	stdio_init_all();
-	printf("ADC Example, measuring multiple channels\n");
-
 	adc_init();
 
 	uint pins[] = {26, 27, 28, 29};  // Replace with the actual GPIO pins you want to use
