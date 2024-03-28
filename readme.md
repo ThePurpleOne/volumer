@@ -26,7 +26,11 @@ Then you can install the software on the PC and flash the firmware on the Board:
 - [Install the PC app](#pc-software)
 - [Install/Update Board Firmware](#board-firmware)
 
+## Case
 
+There is no case for now, don't hesitate to contribute ! Here is the dimensions
+
+<img src="./ressources/pcb_v1.0_dimensions.png" width="500">
 
 
 ## PC Software
